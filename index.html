@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wicked Juju - Stream Hub</title>
   <style>
     * {
@@ -328,15 +329,58 @@
       background: #ff9900;
       color: #1a0f2e;
     }
+
+    @media (max-width: 768px) {
+      .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 30px 15px 20px;
+      }
+
+      .header img.avatar {
+        width: 90px;
+        height: 90px;
+      }
+
+      .header h1 {
+        font-size: 1.6em;
+      }
+
+      .shop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .games-table th,
+      .games-table td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+      }
+
+      section {
+        padding: 20px 12px;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        font-size: 0.9em;
+      }
+
+      .btn-donate {
+        padding: 12px 22px;
+        font-size: 1em;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <div class="header">
-    <img class="avatar"
-      src="images/wicked-juju.png"
-      alt="avatar">
+    <img class="avatar" src="images/wicked-juju.png" alt="avatar">
     <h1>Wicked Juju</h1>
     <p class="tagline">Witch • Streamer • Planner Maker</p>
     <div class="status">🔮 Live Mon–Fri | Guild Wars 2, Witch Craft Wednesdays and more</div>
@@ -364,32 +408,34 @@
 
   <section>
     <h2 class="section-title">🎮 Game Tracker</h2>
-    <table class="games-table">
-      <tr>
-        <th>Games</th>
-        <th>Played</th>
-      </tr>
-      <tr>
-        <td>Guild Wars 2</td>
-        <td class="check-yes">In Progress</td>
-      </tr>
-      <tr>
-        <td>Neva</td>
-        <td class="check-yes">✔ Played</td>
-      </tr>
-      <tr>
-        <td>Gris</td>
-        <td class="check-yes">✔ Played</td>
-      </tr>
-      <tr>
-        <td>Hoa</td>
-        <td class="check-yes">✔ Played</td>
-      </tr>
-      <tr>
-        <td>Spiritfarer</td>
-        <td class="check-yes">✔ Played</td>
-      </tr>
-    </table>
+    <div style="overflow-x: auto;">
+      <table class="games-table">
+        <tr>
+          <th>Games</th>
+          <th>Played</th>
+        </tr>
+        <tr>
+          <td>Guild Wars 2</td>
+          <td class="check-yes">In Progress</td>
+        </tr>
+        <tr>
+          <td>Neva</td>
+          <td class="check-yes">✔ Played</td>
+        </tr>
+        <tr>
+          <td>Gris</td>
+          <td class="check-yes">✔ Played</td>
+        </tr>
+        <tr>
+          <td>Hoa</td>
+          <td class="check-yes">✔ Played</td>
+        </tr>
+        <tr>
+          <td>Spiritfarer</td>
+          <td class="check-yes">✔ Played</td>
+        </tr>
+      </table>
+    </div>
   </section>
 
   <section>
@@ -409,8 +455,7 @@
     <div class="shop-grid">
       <div class="shop-card"
         style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
-        <img
-          src="images/skull-planner.png"
+        <img src="images/skull-planner.png"
           style="width:100%;height:180px;object-fit:contain;border-radius:8px;margin-bottom:8px;background:rgba(0,0,0,0.15);"
           alt="Skulls Planner">
         <p
@@ -424,8 +469,7 @@
 
       <div class="shop-card"
         style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
-        <img
-          src="images/nightmare-planner.png"
+        <img src="images/nightmare-planner.png"
           style="width:100%;height:180px;object-fit:contain;border-radius:8px;margin-bottom:8px;background:rgba(0,0,0,0.15);"
           alt="Nightmare Before Christmas">
         <p
@@ -435,11 +479,10 @@
           href="https://www.etsy.com/listing/4506409156/nightmare-before-christmas-hobonichi?logging_key=c36304800909914507e41d0b46e122403f2ba2eb%3A4506409156"
           style="padding:6px 14px;font-size:0.85em;">Buy €32</a>
       </div>
-     
+
       <div class="shop-card"
         style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
-        <img
-          src="images/ghost-planner.png"
+        <img src="images/ghost-planner.png"
           style="width:100%;height:180px;object-fit:contain;border-radius:8px;margin-bottom:8px;background:rgba(0,0,0,0.15);"
           alt="Ghost Planner">
         <p
@@ -496,27 +539,21 @@
     <h2 class="section-title">🛒 My Suggestions for This Month</h2>
     <div class="shop-grid">
       <div class="shop-card">
-        <img class="product-img"
-          src="images/mug.png"
-          alt="Witchy Mug">
+        <img class="product-img" src="images/mug.png" alt="Witchy Mug">
         <p>Witchy Mug</p>
         <span class="amazon-badge">Amazon Find</span><br>
         <a class="btn btn-amazon" href="https://link.amazon/B0h1cVpQH"
           style="padding:6px 14px;font-size:0.85em;margin-top:8px;">Shop This</a>
       </div>
       <div class="shop-card">
-        <img class="product-img"
-          src="images/hobonichi.png"
-          alt="Hobonichi Planner">
+        <img class="product-img" src="images/hobonichi.png" alt="Hobonichi Planner">
         <p>Hobonichi Planner</p>
         <span class="amazon-badge">Amazon Find</span><br>
         <a class="btn btn-amazon" href="https://link.amazon/B0ilnTrIl"
           style="padding:6px 14px;font-size:0.85em;margin-top:8px;">Shop This</a>
       </div>
       <div class="shop-card">
-        <img class="product-img"
-          src="images/washi-tape.png"
-          alt="Washi Tape">
+        <img class="product-img" src="images/washi-tape.png" alt="Washi Tape">
         <p>Washi Tape</p>
         <span class="amazon-badge">Washi Tape</span><br>
         <a class="btn btn-amazon" href="https://link.amazon/B0j3baVc0"
