@@ -1,135 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Joana Souder - Stream Hub</title>
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
-  body {
-    background: linear-gradient(180deg, #1a0f2e 0%, #2d1b4e 40%, #3d2a5e 100%);
-    color: #f0e6ff;
-    min-height: 100vh;
-  }
-  .header {
-    text-align:center;
-    padding: 60px 20px 40px;
-    background: radial-gradient(circle at top, #4a2f7a 0%, transparent 70%);
-  }
-  .header img.avatar {
-    width:120px; height:120px; border-radius:50%;
-    border: 3px solid #c9a6ff; object-fit:cover;
-    box-shadow: 0 0 30px rgba(201,166,255,0.6);
-  }
-  .header h1 { font-size: 2.2em; margin-top:15px; color:#e8d5ff; text-shadow: 0 0 15px #a06cff; }
-  .header p.tagline { color:#c9a6ff; margin-top:8px; font-size:1.05em; }
-  .status {
-    display:inline-block; margin-top:15px; padding:8px 20px;
-    background:#2e1a4d; border:1px solid #a06cff; border-radius:20px;
-    font-size:0.9em; color:#f0e6ff;
-  }
-  section { max-width: 780px; margin: 0 auto; padding: 30px 20px; }
-  h2.section-title {
-    font-size:1.3em; color:#e8d5ff; margin-bottom:15px;
-    border-left:4px solid #a06cff; padding-left:10px;
-  }
-  .desc-box {
-    background: rgba(255,255,255,0.05); border:1px solid rgba(201,166,255,0.2);
-    border-radius:12px; padding:20px; line-height:1.6; color:#dcc9ff;
-  }
-  .calendar-box iframe {
-    width:100%; height:300px; border-radius:12px; border:1px solid rgba(201,166,255,0.2);
-  }
-  .games-table {
-    width:100%; border-collapse:collapse; background:rgba(255,255,255,0.05);
-    border-radius:12px; overflow:hidden;
-  }
-  .games-table th, .games-table td {
-    padding:10px 14px; text-align:left; border-bottom:1px solid rgba(201,166,255,0.15);
-  }
-  .games-table th { background:rgba(160,108,255,0.25); color:#f0e6ff; }
-  .check-yes { color:#7CFC9E; font-weight:bold; }
-  .check-no { color:#ff8080; }
-  .vote-box {
-    background: rgba(255,255,255,0.05); border:1px solid rgba(201,166,255,0.2);
-    border-radius:12px; padding:20px; text-align:center;
-  }
-  .btn {
-    display:inline-block; margin:6px; padding:12px 22px; border-radius:25px;
-    text-decoration:none; font-weight:bold; color:#1a0f2e; transition: transform .2s;
-  }
-  .btn:hover { transform: scale(1.05); }
-  .btn-twitch { background:#c9a6ff; }
-  .btn-tiktok { background:#e8d5ff; }
-  .btn-youtube { background:#ff9dbf; }
-  .btn-discord { background:#a6c9ff; }
-  .btn-donate {
-    background: linear-gradient(90deg,#ff9dbf,#c9a6ff);
-    color:#1a0f2e; font-size:1.1em; padding:14px 30px;
-  }
-  .shop-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:15px; }
-  .shop-card {
-    background: rgba(255,255,255,0.05); border:1px solid rgba(201,166,255,0.2);
-    border-radius:12px; padding:15px; text-align:center;
-  }
-  .shop-card .img-placeholder {
-    width:100%; height:90px; background: linear-gradient(135deg,#5a3d8a,#7a4fae);
-    border-radius:8px; margin-bottom:8px;
-  }
-  .socials-row { text-align:center; }
-  .donate-section { text-align:center; padding-bottom:60px; }
-  footer { text-align:center; padding:20px; color:#8a6cae; font-size:0.85em; }
-</style>
+  <meta charset="UTF-8">
+  <title>Wicked Juju - Stream Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #1a0f2e 0%, #2d1b4e 40%, #3d2a5e 100%);
+      color: #f0e6ff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      pointer-events: none;
+      z-index: 1;
+      box-shadow: 41vw 19vh #ffffff, 50vw 83vh #ffffff, 6vw 9vh #ffffff, 68vw 12vh #ffffff, 46vw 74vh #ffffff, 7vw 64vh #ffffff, 27vw 4vh #ffffff, 11vw 55vh #ffffff, 53vw 8vh #ffffff, 30vw 11vh #ffffff, 70vw 54vh #ffffff, 7vw 72vh #ffffff, 15vw 28vh #ffffff, 80vw 80vh #ffffff, 74vw 43vh #ffffff, 4vw 96vh #ffffff, 62vw 67vh #ffffff, 91vw 21vh #ffffff, 17vw 88vh #ffffff, 55vw 39vh #ffffff, 88vw 5vh #ffffff, 23vw 62vh #ffffff, 39vw 95vh #ffffff, 76vw 29vh #ffffff, 12vw 41vh #ffffff, 95vw 76vh #ffffff, 33vw 17vh #ffffff, 60vw 91vh #ffffff, 8vw 33vh #ffffff, 84vw 58vh #ffffff, 19vw 6vh #ffffff, 71vw 84vh #ffffff, 44vw 25vh #ffffff, 2vw 79vh #ffffff, 97vw 47vh #ffffff, 36vw 63vh #ffffff, 63vw 14vh #ffffff, 9vw 87vh #ffffff, 78vw 36vh #ffffff, 25vw 71vh #ffffff, 52vw 2vh #ffffff, 85vw 93vh #ffffff, 14vw 49vh #ffffff, 66vw 22vh #ffffff, 3vw 60vh #ffffff, 92vw 89vh #ffffff, 29vw 34vh #ffffff, 58vw 77vh #ffffff, 82vw 15vh #ffffff, 21vw 98vh #ffffff, 47vw 51vh #ffffff, 90vw 32vh #ffffff, 16vw 18vh #ffffff, 64vw 68vh #ffffff, 5vw 44vh #ffffff, 73vw 3vh #ffffff, 38vw 82vh #ffffff, 99vw 57vh #ffffff, 24vw 26vh #ffffff, 56vw 94vh #ffffff, 87vw 40vh #ffffff, 13vw 73vh #ffffff, 69vw 11vh #ffffff, 42vw 61vh #ffffff, 1vw 24vh #ffffff, 77vw 86vh #ffffff, 34vw 8vh #ffffff, 61vw 48vh #ffffff, 18vw 92vh #ffffff, 89vw 65vh #ffffff, 45vw 30vh #ffffff, 6vw 78vh #ffffff, 72vw 20vh #ffffff, 28vw 55vh #ffffff, 96vw 83vh #ffffff, 10vw 37vh #ffffff, 54vw 66vh #ffffff, 81vw 9vh #ffffff, 37vw 90vh #ffffff, 65vw 43vh #ffffff, 22vw 16vh #ffffff, 93vw 70vh #ffffff, 48vw 27vh #ffffff, 75vw 59vh #ffffff, 31vw 5vh #ffffff, 59vw 85vh #ffffff, 86vw 38vh #ffffff, 20vw 68vh #ffffff, 43vw 12vh #ffffff, 98vw 52vh #ffffff, 35vw 97vh #ffffff, 67vw 31vh #ffffff, 26vw 75vh #ffffff, 94vw 6vh #ffffff, 49vw 63vh #ffffff, 79vw 88vh #ffffff, 15vw 42vh #ffffff, 57vw 19vh #ffffff, 83vw 71vh #ffffff, 32vw 46vh #ffffff, 68vw 95vh #ffffff, 11vw 30vh #ffffff, 51vw 80vh #ffffff, 76vw 13vh #ffffff, 40vw 57vh #ffffff, 88vw 24vh #ffffff, 17vw 64vh #ffffff, 62vw 4vh #ffffff, 4vw 91vh #ffffff, 91vw 47vh #ffffff, 23vw 81vh #ffffff, 70vw 35vh #ffffff, 8vw 10vh #ffffff, 46vw 69vh #ffffff, 84vw 2vh #ffffff, 27vw 53vh #ffffff, 55vw 96vh #ffffff, 12vw 21vh #ffffff, 95vw 62vh #ffffff, 39vw 39vh #ffffff, 73vw 77vh #ffffff, 19vw 15vh #ffffff, 60vw 50vh #ffffff, 3vw 84vh #ffffff, 97vw 28vh #ffffff, 33vw 72vh #ffffff, 78vw 45vh #ffffff, 14vw 99vh #ffffff, 66vw 7vh #ffffff, 9vw 55vh #ffffff, 52vw 33vh #ffffff, 85vw 78vh #ffffff, 25vw 20vh #ffffff, 63vw 60vh #ffffff, 5vw 9vh #ffffff, 92vw 41vh #ffffff, 36vw 87vh #ffffff, 71vw 26vh #ffffff, 16vw 67vh #ffffff, 44vw 4vh #ffffff, 82vw 92vh #ffffff, 29vw 48vh #ffffff, 58vw 17vh #ffffff, 2vw 65vh #ffffff, 90vw 36vh #ffffff, 47vw 79vh #ffffff, 21vw 3vh #ffffff, 64vw 58vh #ffffff, 13vw 88vh #ffffff, 56vw 22vh #ffffff, 87vw 68vh #ffffff, 34vw 40vh #ffffff, 69vw 94vh #ffffff, 6vw 12vh #ffffff, 99vw 74vh #ffffff, 42vw 29vh #ffffff, 77vw 61vh #ffffff, 18vw 5vh #ffffff, 61vw 83vh #ffffff, 10vw 46vh #ffffff, 93vw 18vh #ffffff, 38vw 66vh #ffffff, 75vw 2vh #ffffff, 22vw 90vh #ffffff, 65vw 44vh #ffffff, 1vw 76vh #ffffff, 89vw 25vh #ffffff, 45vw 59vh #ffffff, 81vw 8vh #ffffff, 28vw 82vh #ffffff, 54vw 37vh #ffffff, 96vw 63vh #ffffff, 31vw 14vh #ffffff, 72vw 51vh #ffffff, 7vw 97vh #ffffff, 59vw 27vh #ffffff, 86vw 70vh #ffffff, 20vw 42vh #ffffff, 48vw 6vh #ffffff, 74vw 85vh #ffffff, 15vw 34vh #ffffff, 67vw 56vh #ffffff, 3vw 19vh #ffffff, 94vw 89vh #ffffff, 40vw 49vh #ffffff, 79vw 11vh #ffffff, 24vw 73vh #ffffff, 57vw 31vh #ffffff, 91vw 60vh #ffffff, 35vw 4vh #ffffff, 68vw 92vh #ffffff, 12vw 53vh #ffffff, 50vw 16vh #ffffff, 83vw 76vh #ffffff, 26vw 38vh #ffffff, 62vw 96vh #ffffff, 8vw 24vh #ffffff, 95vw 55vh #ffffff, 43vw 81vh #ffffff, 70vw 9vh #ffffff, 17vw 62vh #ffffff, 53vw 44vh #ffffff, 88vw 87vh #ffffff, 30vw 20vh #ffffff, 76vw 66vh #ffffff, 5vw 3vh #ffffff, 60vw 78vh #ffffff, 92vw 32vh #ffffff, 37vw 58vh #ffffff, 80vw 15vh #ffffff, 23vw 93vh #ffffff, 46vw 40vh #ffffff, 98vw 68vh #ffffff, 33vw 25vh #ffffff, 71vw 84vh #ffffff, 9vw 47vh #ffffff, 55vw 6vh #ffffff, 84vw 71vh #ffffff, 27vw 35vh #ffffff, 63vw 91vh #ffffff, 11vw 13vh #ffffff, 97vw 50vh #ffffff, 39vw 86vh #ffffff, 73vw 21vh #ffffff, 16vw 60vh #ffffff, 51vw 4vh #ffffff, 89vw 43vh #ffffff, 22vw 79vh #ffffff, 65vw 30vh #ffffff, 4vw 65vh #ffffff, 93vw 8vh #ffffff, 41vw 52vh #ffffff, 77vw 95vh #ffffff, 19vw 37vh #ffffff, 58vw 72vh #ffffff, 86vw 18vh #ffffff, 32vw 63vh #ffffff, 69vw 5vh #ffffff, 6vw 82vh #ffffff, 99vw 27vh #ffffff, 44vw 96vh #ffffff, 82vw 48vh #ffffff, 25vw 10vh #ffffff, 61vw 69vh #ffffff, 14vw 33vh #ffffff, 96vw 90vh #ffffff, 48vw 22vh #ffffff, 75vw 57vh #ffffff;
+      animation: twinkle 3s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      from {
+        opacity: 0.4;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: radial-gradient(circle at top, #4a2f7a 0%, transparent 70%);
+    }
+
+    .header img.avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #c9a6ff;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(201, 166, 255, 0.6);
+    }
+
+    .header h1 {
+      font-size: 2.2em;
+      margin-top: 15px;
+      color: #e8d5ff;
+      text-shadow: 0 0 15px #a06cff;
+    }
+
+    .header p.tagline {
+      color: #c9a6ff;
+      margin-top: 8px;
+      font-size: 1.05em;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 20px;
+      background: #2e1a4d;
+      border: 1px solid #a06cff;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #f0e6ff;
+    }
+
+    section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    h2.section-title {
+      font-size: 1.3em;
+      color: #e8d5ff;
+      margin-bottom: 15px;
+      border-left: 4px solid #a06cff;
+      padding-left: 10px;
+    }
+
+    .desc-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(201, 166, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      line-height: 1.6;
+      color: #dcc9ff;
+    }
+
+    .games-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .games-table th,
+    .games-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(201, 166, 255, 0.15);
+    }
+
+    .games-table th {
+      background: rgba(160, 108, 255, 0.25);
+      color: #f0e6ff;
+    }
+
+    .check-yes {
+      color: #7CFC9E;
+      font-weight: bold;
+    }
+
+    .check-no {
+      color: #ff8080;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 6px;
+      padding: 12px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #1a0f2e;
+      transition: transform .2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-twitch {
+      background: #c9a6ff;
+    }
+
+    .btn-tiktok {
+      background: #e8d5ff;
+    }
+
+    .btn-youtube {
+      background: #ff9dbf;
+    }
+
+    .btn-etsy {
+      background: #e49f74;
+    }
+
+    .btn-discord {
+      background: #a6c9ff;
+    }
+
+    .btn-donate {
+      background: linear-gradient(90deg, #ff9dbf, #c9a6ff);
+      color: #1a0f2e;
+      font-size: 1.1em;
+      padding: 14px 30px;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .shop-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(201, 166, 255, 0.2);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .shop-card .img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #5a3d8a, #7a4fae);
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .socials-row {
+      text-align: left;
+    }
+
+    .social-buttons {
+      text-align: center;
+    }
+
+    .donate-section {
+      text-align: center;
+      padding-bottom: 60px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #8a6cae;
+      font-size: 0.85em;
+    }
+
+    .supporters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 14px;
+    }
+
+    .supporter-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(201, 166, 255, 0.2);
+      border-radius: 10px;
+      padding: 16px 10px;
+      text-align: center;
+      font-size: 0.9em;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .supporter-card .crown {
+      font-size: 1.4em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(201, 166, 255, 0.2);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 14px 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f0e6ff;
+      font-weight: bold;
+      list-style: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-answer {
+      padding: 0 18px 16px;
+      color: #dcc9ff;
+      line-height: 1.5;
+    }
+
+    .faq-item[open] .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-arrow {
+      transition: transform .2s;
+      color: #c9a6ff;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .highlight-card iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      border: 1px solid rgba(201, 166, 255, 0.2);
+    }
+
+    .amazon-badge {
+      display: inline-block;
+      background: #232f3e;
+      color: #ff9900;
+      font-size: 0.75em;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-top: 6px;
+      font-weight: bold;
+    }
+
+    .product-img {
+      width: 100% !important;
+      height: 180px !important;
+      object-fit: cover !important;
+      border-radius: 8px !important;
+      margin-bottom: 8px !important;
+      display: block;
+    }
+
+    .btn-amazon {
+      background: #ff9900;
+      color: #1a0f2e;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="header">
-  <img class="avatar" src="https://cdn.discordapp.com/attachments/753137858692251648/1495199046606917732/Twitch_Icon.png?ex=6a6e7c20&is=6a6d2aa0&hm=d0aad33fe6c2383a3a099bc9c3d1aadf8be91c9358aa98aebbdf023f61e519a1" alt="avatar">
-  <h1>Wicked Juju</h1>
-  <p class="tagline">Witch • Streamer • Planner Maker</p>
-  <div class="status">🔮 Live Mon–Fri | Guild Wars 2, Witch Craft Wednesdays and more</div>
-</div>
-
-<section>
-  <h2 class="section-title">🕯️ About Me</h2>
-  <div class="desc-box">
-    Hey, I'm Juju! Witchy. Chaotic. Organized. (Somehow.) Games by day, planners by night, DIY disasters all weekend. I dive into Guild Wars 2,
-    craft planners, and love building a cozy little corner of the internet with my community.
+  <div class="header">
+    <img class="avatar"
+      src="images/wicked-juju.png"
+      alt="avatar">
+    <h1>Wicked Juju</h1>
+    <p class="tagline">Witch • Streamer • Planner Maker</p>
+    <div class="status">🔮 Live Mon–Fri | Guild Wars 2, Witch Craft Wednesdays and more</div>
   </div>
-</section>
 
-<section>
-  <h2 class="section-title">🎮 Game Tracker</h2>
-  <table class="games-table">
-    <tr><th>Games</th><th>Played</th></tr>
-    <tr><td>Guild Wars 2</td><td class="check-yes">✔ Played</td></tr>
-    <tr><td>Neva</td><td class="check-yes">✔ Played</td></tr>
-    <tr><td>Gris</td><td class="check-yes">✔ Played</td></tr>
-  </table>
-</section>
+  <section>
+    <h2 class="section-title">🕯️ About Me</h2>
+    <div class="desc-box">
+      Hey, I'm Juju! Witchy. Chaotic. Organized. (Somehow.) Games by day, planners by night, DIY disasters all weekend.
+      I dive into Guild Wars 2,
+      craft planners, and love building a cozy little corner of the internet with my community.
+    </div>
+  </section>
+
+  <section class="socials-row">
+    <h2 class="section-title">📱 Keep in touch with me</h2>
+    <div class="social-buttons">
+      <a class="btn btn-twitch" href="https://www.twitch.tv/thewickedjuju">🟣 Twitch</a>
+      <a class="btn btn-tiktok" href="https://www.tiktok.com/@thewickedjuju">⚫ TikTok</a>
+      <a class="btn btn-youtube" href="https://www.youtube.com/@thewickedjuju">🔴 YouTube</a>
+      <a class="btn btn-etsy" href="https://www.etsy.com/shop/dailywitchualshop">🧿 Etsy Shop</a>
+      <a class="btn btn-discord" href="https://discord.gg/7yErZ5rDz8">💬 Discord</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">🎮 Game Tracker</h2>
+    <table class="games-table">
+      <tr>
+        <th>Games</th>
+        <th>Played</th>
+      </tr>
+      <tr>
+        <td>Guild Wars 2</td>
+        <td class="check-yes">In Progress</td>
+      </tr>
+      <tr>
+        <td>Neva</td>
+        <td class="check-yes">✔ Played</td>
+      </tr>
+      <tr>
+        <td>Gris</td>
+        <td class="check-yes">✔ Played</td>
+      </tr>
+      <tr>
+        <td>Hoa</td>
+        <td class="check-yes">✔ Played</td>
+      </tr>
+      <tr>
+        <td>Spiritfarer</td>
+        <td class="check-yes">✔ Played</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="section-title">👑 Top Supporters</h2>
+    <div class="supporters-grid">
+      <div class="supporter-card"><span class="crown">👑</span>Kaiju</div>
+      <div class="supporter-card"><span class="crown">✨</span>ehecatl87</div>
+      <div class="supporter-card"><span class="crown">✨</span>CelStars</div>
+      <div class="supporter-card"><span class="crown">✨</span>Yoshi</div>
+      <div class="supporter-card"><span class="crown">✨</span>Niaangplussheep</div>
+    </div>
+  </section>
 
 
-<section>
-  <h2 class="section-title">🛍️ Shop Made Live on Stream</h2>
-  <div class="shop-grid">
-    <div class="shop-card"><div class="img-placeholder"></div>Witchy Weekly Planner<br><a class="btn btn-tiktok" href="#" style="padding:6px 14px;font-size:0.85em;">Buy €5</a></div>
-    <div class="shop-card"><div class="img-placeholder"></div>Moon Phase Tracker<br><a class="btn btn-tiktok" href="#" style="padding:6px 14px;font-size:0.85em;">Buy €3</a></div>
-    <div class="shop-card"><div class="img-placeholder"></div>Digital Sticker Pack<br><a class="btn btn-tiktok" href="#" style="padding:6px 14px;font-size:0.85em;">Buy €4</a></div>
+  <section>
+    <h2 class="section-title">📓 Planners Made Live on Screen</h2>
+    <div class="shop-grid">
+      <div class="shop-card"
+        style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
+        <img
+          src="images/skull-planner.png"
+          style="width:100%;height:180px;object-fit:contain;border-radius:8px;margin-bottom:8px;background:rgba(0,0,0,0.15);"
+          alt="Skulls Planner">
+        <p
+          style="min-height:48px;display:flex;align-items:center;justify-content:center;margin:8px 0;color:#f0e6ff;font-weight:bold;font-size:0.95em;">
+          Skulls Planner</p>
+        <a class="btn btn-tiktok"
+          href="https://www.etsy.com/listing/4506416457/skull-hobonichi-a6-cover-gothic-fabric?logging_key=850cc168487d802128e34cf84026a36679381a05%3A4506416457"
+          style="padding:6px 14px;font-size:0.85em;">Buy €24</a>
+      </div>
+
+
+      <div class="shop-card"
+        style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
+        <img
+          src="images/nightmare-planner.png"
+          style="width:100%;height:180px;object-fit:contain;border-radius:8px;margin-bottom:8px;background:rgba(0,0,0,0.15);"
+          alt="Nightmare Before Christmas">
+        <p
+          style="min-height:48px;display:flex;align-items:center;justify-content:center;margin:8px 0;color:#f0e6ff;font-weight:bold;font-size:0.95em;">
+          Nightmare Before Christmas</p>
+        <a class="btn btn-tiktok"
+          href="https://www.etsy.com/listing/4506409156/nightmare-before-christmas-hobonichi?logging_key=c36304800909914507e41d0b46e122403f2ba2eb%3A4506409156"
+          style="padding:6px 14px;font-size:0.85em;">Buy €32</a>
+      </div>
+     
+      <div class="shop-card"
+        style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
+        <img
+          src="images/ghost-planner.png"
+          style="width:100%;height:180px;object-fit:contain;border-radius:8px;margin-bottom:8px;background:rgba(0,0,0,0.15);"
+          alt="Ghost Planner">
+        <p
+          style="min-height:48px;display:flex;align-items:center;justify-content:center;margin:8px 0;color:#f0e6ff;font-weight:bold;font-size:0.95em;">
+          Ghost Planner</p>
+        <a class="btn btn-tiktok"
+          href="https://www.etsy.com/listing/4506426318/halloween-ghost-hobonichi-a5-cover-beige?logging_key=fa7b98ca52a86e53ba79dbdad2c5793a9aa42801%3A4506426318"
+          style="padding:6px 14px;font-size:0.85em;">Buy €37</a>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <section>
+    <h2 class="section-title">🔮 FAQ</h2>
+    <details class="faq-item">
+      <summary class="faq-question">What games do you play? <span class="faq-arrow">▾</span></summary>
+      <div class="faq-answer">Mostly Guild Wars 2, but I do Witch Craft Wednesdays, where we make planners live, and
+        variety too!</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Can I request a game? <span class="faq-arrow">▾</span></summary>
+      <div class="faq-answer">Yes! As of now, the only option to do so is through the <a
+          href="https://www.etsy.com/shop/dailywitchualshop" style="color:#c9a6ff;">Discord.</a></div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Where can I buy your planners? <span class="faq-arrow">▾</span></summary>
+      <div class="faq-answer">Check the Shop section above, each planner links straight to checkout or you can visit the
+        store to find other planners <a href="https://www.etsy.com/shop/dailywitchualshop"
+          style="color:#c9a6ff;">here.</a></div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">How can I support the stream? <span class="faq-arrow">▾</span></summary>
+      <div class="faq-answer">Subs, tips, or the donate button below all help keep the magic going.</div>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="section-title">🎬 Highlight Reel</h2>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/Q4pju4X_RCA" title="Highlight 1"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="highlight-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/aLgs1z82hbk&t" title="Highlight 1"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">🛒 My Suggestions for This Month</h2>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <img class="product-img"
+          src="images/mug.png"
+          alt="Witchy Mug">
+        <p>Witchy Mug</p>
+        <span class="amazon-badge">Amazon Find</span><br>
+        <a class="btn btn-amazon" href="https://link.amazon/B0h1cVpQH"
+          style="padding:6px 14px;font-size:0.85em;margin-top:8px;">Shop This</a>
+      </div>
+      <div class="shop-card">
+        <img class="product-img"
+          src="images/hobonichi.png"
+          alt="Hobonichi Planner">
+        <p>Hobonichi Planner</p>
+        <span class="amazon-badge">Amazon Find</span><br>
+        <a class="btn btn-amazon" href="https://link.amazon/B0ilnTrIl"
+          style="padding:6px 14px;font-size:0.85em;margin-top:8px;">Shop This</a>
+      </div>
+      <div class="shop-card">
+        <img class="product-img"
+          src="images/washi-tape.png"
+          alt="Washi Tape">
+        <p>Washi Tape</p>
+        <span class="amazon-badge">Washi Tape</span><br>
+        <a class="btn btn-amazon" href="https://link.amazon/B0j3baVc0"
+          style="padding:6px 14px;font-size:0.85em;margin-top:8px;">Shop This</a>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:0.9em; color:#8a6cae; margin-top:15px;">
+      A bit of witchy business: these are affiliate spells - I may earn a small commission if you shop
+      through them, with zero extra cost to you.
+    </p>
+  </section>
+
+  <div class="donate-section">
+    <a class="btn btn-donate" href="https://streamlabs.com/thewickedjuju/tip">💫 Support the Magic</a>
   </div>
-</section>
 
-<section class="socials-row">
-  <h2 class="section-title">📱 Keep in touch with me</h2>
-  <a class="btn btn-twitch" href="https://www.twitch.tv/thewickedjuju">🟣 Twitch</a>
-  <a class="btn btn-tiktok" href="https://www.tiktok.com/@thewickedjuju">⚫ TikTok</a>
-  <a class="btn btn-youtube" href="https://www.youtube.com/@thewickedjuju">🔴 YouTube</a>
-  <a class="btn btn-discord" href="https://www.tiktok.com/@thewickedjuju">💬 Discord</a>
-</section>
-
-<div class="donate-section">
-  <a class="btn btn-donate" href="https://streamlabs.com/thewickedjuju/tip">💫 Support the Magic</a>
-</div>
-
-<footer>✨ Made with love & a little magic ✨</footer>
+  <footer>✨ Made with love & a little magic ✨</footer>
 
 </body>
+
 </html>
