@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta name="theme-color" content="#1a0f2e">
+
+  <meta
+    name="description"
+    content="A little thank-you from Wicked Juju. Thank you for supporting my small shop and being part of the magic."
+  >
+
+  <title>A Little Thank You | Wicked Juju</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* Optional custom heading font */
+    @font-face {
+      font-family: "BFC Charmed Witches";
+      src: url("BFCCharmedWitches.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+
+      --bg-top: #1a0f2e;
+      --bg-middle: #2d1b4e;
+      --bg-bottom: #3d2a5e;
+
+      --text: #f0e6ff;
+      --muted: #d1bde8;
+      --lavender: #c9a6ff;
+      --line: rgba(201, 166, 255, 0.23);
+
+      --body-font: "Segoe UI", system-ui, sans-serif;
+
+      --heading-font:
+        "BFC Charmed Witches",
+        "Berkshire Swash",
+        Georgia,
+        serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg-top);
+    }
+
+    body {
+      position: relative;
+      isolation: isolate;
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+
+      background: linear-gradient(
+        180deg,
+        var(--bg-top) 0%,
+        var(--bg-middle) 50%,
+        var(--bg-bottom) 100%
+      );
+
+      background-attachment: fixed;
+
+      color: var(--text);
+      font-family: var(--body-font);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    /* Starry background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+
+      background-image:
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.65) 1px,
+          transparent 1.5px
+        ),
+        radial-gradient(
+          circle,
+          rgba(228, 202, 255, 0.5) 0.7px,
+          transparent 1.3px
+        ),
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.45) 0.7px,
+          transparent 1.2px
+        );
+
+      background-size:
+        137px 163px,
+        211px 179px,
+        89px 251px;
+
+      background-position:
+        23px 45px,
+        80px 110px,
+        17px 12px;
+
+      opacity: 0.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #ffcf8b;
+      outline-offset: 5px;
+    }
+
+    ::selection {
+      background: #a06cff;
+      color: #fff;
+    }
+
+    .page {
+      position: relative;
+      width: min(740px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 48px 0 24px;
+    }
+
+    /* Introduction */
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0 28px;
+      text-align: center;
+    }
+
+    .thank-you-avatar {
+      flex: 0 0 auto;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 30px;
+      padding: 0;
+
+      border: none;
+      border-radius: 50%;
+      overflow: hidden;
+
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .thank-you-avatar img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+
+      object-fit: cover;
+      object-position: center;
+
+      border: none;
+      border-radius: 50%;
+      box-shadow: none;
+      filter: none;
+      transform: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--lavender);
+      font-family: var(--body-font);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.23em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--heading-font);
+      font-weight: 400;
+    }
+
+    h1 {
+      max-width: 100%;
+      margin: 0 0 15px;
+      color: #f2e8ff;
+      font-size: clamp(35px, 7vw, 52px);
+      line-height: 1.3;
+      text-shadow: 0 0 25px rgba(160, 108, 255, 0.27);
+    }
+
+    .subtitle {
+      max-width: 450px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* Centered thank-you note */
+    .note {
+      position: relative;
+      padding: 35px 38px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      text-align: center;
+
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.055),
+        rgba(255, 255, 255, 0.025)
+      );
+
+      box-shadow: 0 14px 50px rgba(16, 5, 27, 0.15);
+    }
+
+    .note::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 35px;
+      left: 35px;
+      height: 1px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(215, 182, 255, 0.6),
+        transparent
+      );
+    }
+
+    .note h2 {
+      margin: 0 0 18px;
+      color: #e8d5ff;
+      font-size: 28px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .note p {
+      margin: 0 0 17px;
+      color: #dcc9ff;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* Thank-you gift */
+    .thank-you-gift {
+      margin: 27px 0;
+      padding: 25px 22px;
+      border: 1px dashed rgba(201, 166, 255, 0.45);
+      border-radius: 12px;
+      background: rgba(201, 166, 255, 0.08);
+      text-align: center;
+    }
+
+    .thank-you-gift h3 {
+      margin: 0 0 12px;
+      color: #e8d5ff;
+      font-size: 25px;
+      line-height: 1.4;
+    }
+
+    .thank-you-gift p {
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      max-width: 100%;
+      min-height: 48px;
+      padding: 12px 24px;
+
+      border: 1px solid transparent;
+      border-radius: 26px;
+      background: #c9a6ff;
+      color: #1a0f2e;
+
+      font-family: var(--body-font);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.4;
+
+      transition:
+        transform 0.2s,
+        background 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #ddc6ff;
+    }
+
+    /* Centered signature */
+    .note .signature {
+      margin: 25px 0 0;
+      color: #eedcff;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .signature strong {
+      display: block;
+      color: #e1c4ff;
+      font-family: var(--heading-font);
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .signature span {
+      display: block;
+      color: #bfa3dc;
+      font-family: var(--body-font);
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 28px 0;
+      color: #c9a6ff;
+      font-family: Georgia, serif;
+      font-size: 16px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      width: 65px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* Social section */
+    .social-section {
+      text-align: center;
+    }
+
+    .social-section h2 {
+      margin: 0 0 8px;
+      color: #e8d5ff;
+      font-size: 29px;
+      line-height: 1.4;
+    }
+
+    .social-section > p {
+      max-width: 470px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 12px 16px;
+
+      border: 1px solid rgba(201, 166, 255, 0.27);
+      border-radius: 26px;
+
+      font-family: var(--body-font);
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.4;
+      text-decoration: none;
+
+      box-shadow: 0 5px 16px rgba(19, 9, 28, 0.13);
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+    }
+
+    .social-button svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .external {
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      opacity: 0.75;
+    }
+
+    .twitch {
+      background: #c9a6ff;
+      color: #1a0f2e;
+    }
+
+    .tiktok {
+      background: #e8d5ff;
+      color: #1a0f2e;
+    }
+
+    .youtube {
+      background: #ff9dbf;
+      color: #1a0f2e;
+    }
+
+    .social-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 22px rgba(160, 108, 255, 0.2);
+    }
+
+    .twitch:hover {
+      background: #dcc4ff;
+    }
+
+    .tiktok:hover {
+      background: #f2e7ff;
+    }
+
+    .youtube:hover {
+      background: #ffb8d1;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 34px;
+      color: #b59acc;
+      font-family: var(--body-font);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .page {
+        width: calc(100% - 28px);
+        padding-top: 30px;
+      }
+
+      .intro {
+        padding-bottom: 24px;
+      }
+
+      .thank-you-avatar {
+        width: 150px;
+        height: 150px;
+      }
+
+      .note {
+        padding: 25px 22px;
+      }
+
+      .note h2 {
+        font-size: 26px;
+      }
+
+      .thank-you-gift {
+        padding: 22px 16px;
+      }
+
+      .thank-you-gift h3 {
+        font-size: 23px;
+      }
+
+      .thank-you-gift .button {
+        width: 100%;
+      }
+
+      .socials {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .social-button {
+        position: relative;
+        min-height: 52px;
+      }
+
+      .social-button .external {
+        position: absolute;
+        right: 22px;
+      }
+
+      .footer {
+        margin-top: 26px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <main>
+
+      <!-- Logo and introduction -->
+      <section class="intro" aria-labelledby="thank-you-title">
+
+        <div class="thank-you-avatar">
+          <img
+            src="wicked-juju.png"
+            alt="Wicked Juju logo"
+            width="180"
+            height="180"
+          >
+        </div>
+
+        <div class="eyebrow">
+          A little note, just for you
+        </div>
+
+        <h1 id="thank-you-title">
+          Thank you for being<br>
+          part of the magic.
+        </h1>
+
+        <p class="subtitle">
+          Your support means so much to this little creative
+          corner and to the person behind it.
+        </p>
+
+      </section>
+
+      <!-- Personal thank-you note -->
+      <article class="note" aria-labelledby="note-title">
+
+        <h2 id="note-title">Hey, lovely soul.</h2>
+
+        <p>
+          I just wanted to leave you a little thank-you.
+          Whether you’ve visited my shop, stopped by a stream,
+          shared something I’ve made, or cheered me on from
+          your own cozy corner, I’m so grateful you’re here.
+        </p>
+
+        <p>
+          Behind every creation and every stream is me:
+          dreaming up ideas, making a little mess, and putting
+          a piece of my heart into what I do. Your kindness
+          helps make this little world feel possible.
+        </p>
+
+        <p>
+          I hope you find something here that brings a little
+          joy to your day, a little calm to the chaos, or simply
+          a place where you feel welcome.
+        </p>
+
+        <p>
+          Thank you for helping keep the candles burning
+          and the magic flowing.
+        </p>
+
+        <!--
+          Add your actual discount code or Etsy coupon URL
+          before publishing the 10% offer.
+        -->
+        <div class="thank-you-gift">
+
+          <h3>A little thank-you, just for you</h3>
+
+          <p>
+            Thank you for supporting my little shop.
+            As a small gift, enjoy 10% off your next order.
+          </p>
+
+          <a
+            class="button"
+            href="https://www.etsy.com/shop/dailywitchualshop"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit my Etsy shop
+            <span class="external" aria-hidden="true">↗</span>
+          </a>
+
+        </div>
+
+        <p class="signature">
+          With love &amp; a little magic 🪄,
+          <strong>Juju</strong>
+          <span>A Stitch of Wicked</span>
+        </p>
+
+      </article>
+
+      <div class="divider" aria-hidden="true">✦</div>
+
+      <!-- Social media -->
+      <section
+        class="social-section"
+        aria-labelledby="social-title"
+      >
+
+        <h2 id="social-title">Let’s keep in touch.</h2>
+
+        <p>
+          Cozy games, creative moments, and a little everyday
+          magic, come join me.
+        </p>
+
+        <nav class="socials" aria-label="Social media">
+
+          <a
+            class="social-button twitch"
+            href="https://www.twitch.tv/thewickedjuju"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M11.571 4.714h1.715v5.143h-1.715zm4.715 0H18v5.143h-1.714zM6 0 1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143-3.428 3.428h-3.429l-3 3v-3H6V1.714h14.571z"
+              />
+            </svg>
+
+            <span>Twitch</span>
+            <span class="external" aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            class="social-button tiktok"
+            href="https://www.tiktok.com/@astitchofwicked"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M16 2h-4v13.5a3 3 0 1 1-2.5-3V8.4a7 7 0 1 0 6.5 7V8a10 10 0 0 0 6 2V6a6 6 0 0 1-6-4Z"
+              />
+            </svg>
+
+            <span>TikTok</span>
+            <span class="external" aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            class="social-button youtube"
+            href="https://www.youtube.com/@astitchofwicked"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M23 7s-.2-1.7-1-2.5C21 3.5 20 3.5 19.5 3.4 16 3.2 12 3.2 12 3.2s-4 0-7.5.2C4 3.5 3 3.5 2 4.5 1.2 5.3 1 7 1 7S.8 9 .8 11v2c0 2 .2 4 .2 4s.2 1.7 1 2.5c1 1 2.3 1 3 1.1 2.2.2 7 .2 7 .2s4 0 7.5-.2c.5-.1 1.5-.1 2.5-1.1.8-.8 1-2.5 1-2.5s.2-2 .2-4v-2c0-2-.2-4-.2-4ZM10 16V8l7 4-7 4Z"
+              />
+            </svg>
+
+            <span>YouTube</span>
+            <span class="external" aria-hidden="true">↗</span>
+          </a>
+
+        </nav>
+
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        © <span id="year">2026</span> Wicked Juju
+        - Made with love &amp; a little magic 🪄
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+
+</html>

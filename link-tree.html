@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1a0f2e">
+  <title>A Stitch of Wicked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: "BFC Charmed Witches";
+      src: url("fonts/BFCCharmedWitches-Regular.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --accent: #c9a7ff;
+      --text: #f0e6ff;
+      --muted: #b9a2dc;
+      --font: "BFC Charmed Witches", "Berkshire Swash", Georgia, serif;
+      --font-plain: Georgia, "Times New Roman", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #1a0f2e 0%, #2d1b4e 40%, #3d2a5e 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      box-shadow:
+        42vw 20vh 0 1.2px rgba(255,255,255,0.68),
+        10vw 69vh 0 0.5px rgba(255,255,255,0.53),
+        8vw 65vh 0 0.8px rgba(255,255,255,0.37),
+        56vw 54vh 0 0.5px rgba(255,255,255,0.47),
+        71vw 55vh 0 0.5px rgba(255,255,255,0.76),
+        16vw 29vh 0 0.5px rgba(255,255,255,0.64),
+        51vw 7vh 0 0.8px rgba(255,255,255,0.37),
+        18vw 38vh 0 1.2px rgba(255,255,255,0.42),
+        16vw 74vh 0 1px rgba(255,255,255,0.63),
+        88vw 24vh 0 0.5px rgba(255,255,255,0.64),
+        82vw 25vh 0 1px rgba(255,255,255,0.4),
+        92vw 9vh 0 0.5px rgba(255,255,255,0.66),
+        64vw 88vh 0 1.2px rgba(255,255,255,0.74),
+        60vw 75vh 0 1.2px rgba(255,255,255,0.53),
+        32vw 24vh 0 0.8px rgba(255,255,255,0.39),
+        39vw 68vh 0 1.2px rgba(255,255,255,0.79),
+        94vw 58vh 0 1px rgba(255,255,255,0.65),
+        10vw 16vh 0 1.2px rgba(255,255,255,0.43),
+        44vw 20vh 0 1.2px rgba(255,255,255,0.56),
+        86vw 10vh 0 1px rgba(255,255,255,0.52),
+        45vw 77vh 0 1.2px rgba(255,255,255,0.64),
+        59vw 9vh 0 0.5px rgba(255,255,255,0.82),
+        61vw 90vh 0 0.5px rgba(255,255,255,0.38),
+        90vw 40vh 0 1.2px rgba(255,255,255,0.49),
+        50vw 86vh 0 1px rgba(255,255,255,0.36),
+        60vw 46vh 0 0.8px rgba(255,255,255,0.66),
+        64vw 8vh 0 0.8px rgba(255,255,255,0.73),
+        17vw 95vh 0 0.8px rgba(255,255,255,0.55),
+        64vw 11vh 0 0.8px rgba(255,255,255,0.57),
+        71vw 36vh 0 0.8px rgba(255,255,255,0.76),
+        88vw 49vh 0 0.8px rgba(255,255,255,0.43),
+        23vw 20vh 0 0.8px rgba(255,255,255,0.68),
+        2vw 63vh 0 0.8px rgba(255,255,255,0.48),
+        1vw 19vh 0 1.2px rgba(255,255,255,0.62),
+        79vw 73vh 0 1px rgba(255,255,255,0.83),
+        89vw 66vh 0 0.5px rgba(255,255,255,0.58),
+        88vw 72vh 0 1.2px rgba(255,255,255,0.55),
+        51vw 14vh 0 1.2px rgba(255,255,255,0.67),
+        8vw 25vh 0 0.5px rgba(255,255,255,0.84),
+        57vw 21vh 0 0.5px rgba(255,255,255,0.52),
+        7vw 14vh 0 0.5px rgba(255,255,255,0.63),
+        69vw 13vh 0 1px rgba(255,255,255,0.66),
+        10vw 27vh 0 1.2px rgba(255,255,255,0.42),
+        33vw 45vh 0 1px rgba(255,255,255,0.59),
+        15vw 63vh 0 1.2px rgba(255,255,255,0.59),
+        40vw 11vh 0 0.8px rgba(255,255,255,0.4),
+        44vw 95vh 0 1px rgba(255,255,255,0.59),
+        89vw 21vh 0 0.5px rgba(255,255,255,0.45),
+        68vw 47vh 0 0.8px rgba(255,255,255,0.7),
+        4vw 98vh 0 1px rgba(255,255,255,0.84),
+        12vw 90vh 0 1px rgba(255,255,255,0.61),
+        22vw 46vh 0 0.8px rgba(255,255,255,0.62),
+        65vw 43vh 0 0.8px rgba(255,255,255,0.66),
+        98vw 25vh 0 0.8px rgba(255,255,255,0.76),
+        95vw 30vh 0 0.8px rgba(255,255,255,0.61),
+        46vw 94vh 0 0.5px rgba(255,255,255,0.84),
+        36vw 61vh 0 1px rgba(255,255,255,0.45),
+        78vw 45vh 0 1.2px rgba(255,255,255,0.75),
+        93vw 45vh 0 1px rgba(255,255,255,0.39),
+        14vw 30vh 0 1.2px rgba(255,255,255,0.45),
+        27vw 62vh 0 0.5px rgba(255,255,255,0.59),
+        84vw 45vh 0 0.5px rgba(255,255,255,0.77),
+        16vw 50vh 0 0.8px rgba(255,255,255,0.59),
+        23vw 56vh 0 1px rgba(255,255,255,0.39),
+        93vw 51vh 0 1.2px rgba(255,255,255,0.55),
+        11vw 93vh 0 0.8px rgba(255,255,255,0.44),
+        17vw 4vh 0 0.8px rgba(255,255,255,0.65),
+        60vw 84vh 0 0.8px rgba(255,255,255,0.66),
+        77vw 61vh 0 1px rgba(255,255,255,0.43);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 36px 18px calc(16px + env(safe-area-inset-bottom));
+    }
+
+    .logo {
+      max-width: 180px;
+      width: 55%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      object-fit: cover;
+      background: #2a1650;
+      font-size: 0;
+      color: transparent;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+      margin: 18px 0 0;
+    }
+
+    .tagline {
+      letter-spacing: 1.5px;
+      font-size: .95rem;
+      color: var(--muted);
+      margin: 14px 0 24px;
+    }
+
+    .icons {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 22px;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .icons a {
+      flex: 0 1 46px;
+      min-width: 0;
+      height: 46px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color .15s, transform .15s;
+    }
+
+    .icons a:hover,
+    .icons a:active {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .icons svg {
+      width: 26px;
+      max-width: 62%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      fill: currentColor;
+      display: block;
+    }
+
+    a.link {
+      display: block;
+      margin: 0 0 11px;
+      padding: 13px 14px;
+      min-height: 50px;
+      line-height: 1.3;
+      border: 1px solid var(--accent);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font);
+      font-size: 1.1rem;
+      transition: background .15s, color .15s, transform .15s;
+    }
+
+    a.link:hover,
+    a.link:active {
+      background: var(--accent);
+      color: #1a0f2e;
+      transform: translateY(-1px);
+    }
+
+    .footer {
+      font-family: var(--font-plain);
+      font-size: .70rem;
+      line-height: 1.4;
+      color: var(--muted);
+      margin: 10px 0 0;
+      padding: 0;
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="profile">
+      <img class="avatar" src="wicked-juju.png" alt="A Stitch of Wicked profile picture">
+    </div>
+
+    <!-- <img class="logo" src="logo.png" alt="A Stitch of Wicked logo"> -->
+    <div class="logo-text">A Stitch of Wicked</div>
+
+    <div class="tagline">Witchy streamer &amp; Planner Maker</div>
+
+    <div class="icons">
+      <a href="https://astitchofwicked.etsy.com/" aria-label="Etsy" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <text x="12" y="20" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24"
+            font-weight="700">E</text>
+        </svg>
+      </a>
+      <a href="https://twitch.tv/thewickedjuju" aria-label="Twitch" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z" />
+        </svg>
+      </a>
+      <a href="https://youtube.com/@astitchofwicked" aria-label="YouTube" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z" />
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@astitchofwicked" aria-label="TikTok" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2h-3.5v13.3a2.9 2.9 0 1 1-2-2.8V9.4a6.4 6.4 0 1 0 5.5 6.4V9.1a8.2 8.2 0 0 0 4.8 1.5V7.1c-.3 0-.7-.2-1-.4z" />
+        </svg>
+      </a>
+      <a href="https://discord.gg/ESuAZZ2Rn5" aria-label="Discord" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.5a18 18 0 0 0-4.4 0L10.6 3a19.8 19.8 0 0 0-4.9 1.4C2.6 9 1.800 13.500 2.200 18a19.900 19.900 0 0 0 6 3l1.300-2.100c-.7-.3-1.400-.6-2-1l.5-.4a14.200 14.200 0 0 0 12 0l.5.4c-.6.400-1.300.7-2 1L19.800 21a19.900 19.900 0 0 0 6-3c.5-5.200-.8-9.700-3.500-13.600zM8.700 15.300c-1.200 0-2.100-1.100-2.100-2.400s.9-2.400 2.100-2.400 2.100 1.100 2.100 2.400-.9 2.400-2.100 2.400zm6.600 0c-1.200 0-2.100-1.100-2.100-2.400s.9-2.400 2.100-2.400 2.100 1.100 2.100 2.400-.9 2.400-2.100 2.400z"
+            transform="translate(-1.5 0) scale(.95)" />
+        </svg>
+      </a>
+      <a href="mailto:astitchofwicked@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.200L4.500 7H4v.9l8 5.500 8-5.500V7h-.5L12 12.200zM4 17h16V10.300l-8 5.500-8-5.500V17z" />
+        </svg>
+      </a>
+      <a href="https://wickedjuju.com" aria-label="Website" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.900 9h-3a15.700 15.700 0 0 0-1.300-5.600A8 8 0 0 1 18.900 11zM12 4c.8 1 1.700 3.100 1.900 7h-3.800C10.300 7.100 11.200 5 12 4zM4.100 13h3a15.700 15.700 0 0 0 1.300 5.600A8 8 0 0 1 4.100 13zm3-2h-3a8 8 0 0 1 4.300-5.600A15.700 15.700 0 0 0 7.100 11zM12 20c-.8-1-1.700-3.100-1.900-7h3.800c-.2 3.900-1.100 6-1.900 7zm2.600-1.400a15.700 15.700 0 0 0 1.300-5.600h3a8 8 0 0 1-4.300 5.600z" />
+        </svg>
+      </a>
+    </div>
+
+    <a class="link" href="https://astitchofwicked.etsy.com/" target="_blank" rel="noopener">Etsy Store!</a>
+    <a class="link" href="https://www.tiktok.com/@astitchofwicked" target="_blank" rel="noopener">Tik Tok</a>
+    <a class="link" href="https://youtube.com/@astitchofwicked" target="_blank" rel="noopener">Latest YouTube Video</a>
+    <a class="link" href="https://twitch.tv/thewickedjuju" target="_blank" rel="noopener">Watch Live on Twitch</a>
+    <a class="link" href="https://discord.gg/ESuAZZ2Rn5" target="_blank" rel="noopener">Join the Discord Coven</a>
+    <a class="link" href="https://a.co/d/0a5hsL3R" target="_blank" rel="noopener">Amazon Storefront</a>
+
+    <p class="footer">© 2026 Wicked Juju - Made with love &amp; a little magic 🪄</p>
+
+  </div>
+</body>
+
+</html>
