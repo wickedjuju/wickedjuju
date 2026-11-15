@@ -6,11 +6,11 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
-  <meta name="robots" content="noindex">
 
   <meta name="theme-color" content="#1a0f2e">
+  <meta name="robots" content="noindex">
 
   <meta
     name="description"
@@ -33,10 +33,9 @@
   >
 
   <style>
-    /* Optional custom heading font */
     @font-face {
       font-family: "BFC Charmed Witches";
-      src: url("BFCCharmedWitches.woff2") format("woff2");
+      src: url("fonts/BFCCharmedWitches-Regular.ttf") format("truetype");
       font-style: normal;
       font-weight: 400;
       font-display: swap;
@@ -44,10 +43,6 @@
 
     :root {
       color-scheme: dark;
-
-      --bg-top: #1a0f2e;
-      --bg-middle: #2d1b4e;
-      --bg-bottom: #3d2a5e;
 
       --text: #f0e6ff;
       --muted: #d1bde8;
@@ -65,11 +60,12 @@
 
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
       min-height: 100%;
-      background: var(--bg-top);
+      background: #1a0f2e;
     }
 
     body {
@@ -81,9 +77,9 @@
 
       background: linear-gradient(
         180deg,
-        var(--bg-top) 0%,
-        var(--bg-middle) 50%,
-        var(--bg-bottom) 100%
+        #1a0f2e 0%,
+        #2d1b4e 40%,
+        #3d2a5e 100%
       );
 
       background-attachment: fixed;
@@ -93,43 +89,23 @@
       font-size: 14px;
       font-weight: 400;
       line-height: 1.65;
+
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
     }
 
-    /* Starry background */
+    /* Scattered stars from your link-tree page */
     body::before {
       content: "";
       position: fixed;
-      inset: 0;
-      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
       pointer-events: none;
+      z-index: 0;
 
-      background-image:
-        radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.65) 1px,
-          transparent 1.5px
-        ),
-        radial-gradient(
-          circle,
-          rgba(228, 202, 255, 0.5) 0.7px,
-          transparent 1.3px
-        ),
-        radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.45) 0.7px,
-          transparent 1.2px
-        );
-
-      background-size:
-        137px 163px,
-        211px 179px,
-        89px 251px;
-
-      background-position:
-        23px 45px,
-        80px 110px,
-        17px 12px;
-      opacity: 0.5;
       box-shadow:
         42vw 20vh 0 1.2px rgba(255,255,255,0.68),
         10vw 69vh 0 0.5px rgba(255,255,255,0.53),
@@ -218,9 +194,10 @@
 
     .page {
       position: relative;
+      z-index: 1;
       width: min(740px, calc(100% - 36px));
       margin: 0 auto;
-      padding: 48px 0 24px;
+      padding: 48px 0 calc(24px + env(safe-area-inset-bottom));
     }
 
     /* Introduction */
@@ -342,7 +319,7 @@
     .note p {
       margin: 0 0 17px;
       color: #dcc9ff;
-      font-size: 16px;
+      font-size: 14px;
       text-align: center;
     }
 
@@ -632,7 +609,7 @@
 
         <div class="thank-you-avatar">
           <img
-            src="images\wicked-juju.png"
+            src="wicked-juju.png"
             alt="Wicked Juju logo"
             width="180"
             height="180"
@@ -650,7 +627,7 @@
 
         <p class="subtitle">
           Your support means so much to this little creative
-          corner and to the person behind it.
+          corner, and to the person behind it.
         </p>
 
       </section>
@@ -805,8 +782,7 @@
 
     <footer class="footer">
       <p>
-        © <span id="year">2026</span> Wicked Juju
-        - Made with love &amp; a little magic 🪄
+        © <span id="year">2026</span> Wicked Juju - Made with love &amp; a little magic 🪄
       </p>
     </footer>
   </div>
